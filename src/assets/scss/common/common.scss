@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway";
+    font-weight: 400;
+}
+
+@mixin media($size) {
+    @media (max-width: #{$size}px) {
+        @content;
+    }
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @include media(1400){
+        max-width: 1220px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background: #141414;
+    overflow-x: hidden;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+main {
+    padding-bottom: 70px;
+}

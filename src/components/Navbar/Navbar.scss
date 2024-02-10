@@ -1,0 +1,102 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    background: rgba(20, 20, 20, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    &.scroll {
+        background: #141414;
+    }
+
+    & .container {
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu,
+    &__close {
+        width: 40px;
+        height: 40px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        cursor: pointer;
+
+        @include media(800) {
+            display: flex;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+
+        @include media(800) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #141414;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 35px;
+            transition: 200ms linear;
+            transform: translateY(-100%);
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+
+            &.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            & .navbar__close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    }
+
+    &__link {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.16;
+        color: rgba(255, 255, 255, 0.6);
+        transition: 0.3s linear;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &.router-link-exact-active {
+            color: #fff;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translate(-50%, 70%);
+                display: block;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: #149a03;
+            }
+        }
+    }
+}
